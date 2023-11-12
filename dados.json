@@ -1,0 +1,81 @@
+{
+    "clientes": [
+        {
+            "cpf": "41635697824",
+            "email": "cd@fga",
+            "id": 1,
+            "nome": "cris",
+            "telefone": "15165"
+          },
+          {
+            "cpf": "80274376016",
+            "email": "fdf@fg",
+            "id": 9,
+            "nome": "Ana",
+            "telefone": "45353"
+          },
+          {
+            "cpf": "12345678996",
+            "email": "fd5@fg415",
+            "id": 10,
+            "nome": "DIEGO",
+            "telefone": "3516646"
+          },
+          {
+            "cpf": "87013082112",
+            "email": "csdf@",
+            "id": 3,
+            "nome": "vssss",
+            "telefone": "14185646"
+          },
+          {
+            "cpf": "93838616812",
+            "email": "fd@ghf",
+            "id": 5,
+            "nome": "Ben",
+            "telefone": "156"
+          },
+          {
+            "cpf": "41635697824",
+            "email": "cd@fga",
+            "id": 11,
+            "nome": "ANABELE",
+            "telefone": "15165"
+          },
+          {
+            "cpf": "71577232470",
+            "email": "fdfg@gfr4",
+            "id": 2,
+            "nome": "Alex",
+            "telefone": "586664"
+          },
+          {
+            "cpf": "45321678998",
+            "email": "marq@gfg.com",
+            "id": 13,
+            "nome": "MARCOS",
+            "telefone": "1564664"
+          },
+          {
+            "cpf": "4320792777",
+            "email": "cfd@fgd",
+            "id": 8,
+            "nome": "Gil",
+            "telefone": "464"
+          },
+          {
+            "cpf": "40154769720",
+            "email": "ALB@gmail",
+            "id": 6,
+            "nome": "ALBERTO",
+            "telefone": "15345635"
+          },
+          {
+            "cpf": "41635697824",
+            "email": "cd@fdfgdgdfgdf",
+            "id": 12,
+            "nome": "Carol",
+            "telefone": "1545165"
+          }
+    ]
+}
