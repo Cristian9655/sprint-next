@@ -1033,6 +1033,30 @@ footer{
           padding: 10px 15px;
 
         }
+        .excluir{
+          width: 10%;
+          button{
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: #3C5CCF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 250ms;
+            .iconEx{
+              margin-left: 10px;
+            }
+          }
+          :hover{
+            background-color: red;
+            transform: scale(1.1);
+          }
+        }
+     
       }
       & tr:nth-child(2n){
         background-color: #ccc;

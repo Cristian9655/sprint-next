@@ -1,9 +1,15 @@
 'use client'
 import { useEffect, useState } from "react"
-
+import {FaEdit, FaTrash} from 'react-icons/fa'
 export default function Consumir(){
     const[clientes, setClientes] = useState([])
     const[bicicletas, setBicicletas] = useState([])
+
+    const handDelete = (id, endpoint)=>{
+        fetch(`http://127.0.0.1:5000/api/${endpoint}/${id}`, {method: 'delete'})
+            .then(window.location = '/consumir')
+            .catch(error => console.error(error))
+    }
 
     useEffect(() => {
         fetch('http://127.0.0.1:5000/api/clientes')
@@ -30,6 +36,7 @@ export default function Consumir(){
                         <th>Telefone</th>
                         <th>Email</th>
                         <th>Cpf</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +46,9 @@ export default function Consumir(){
                             <td className="td">{clie.telefone}</td>
                             <td className="td">{clie.email}</td>
                             <td className="td">{clie.cpf}</td>
+                            <td className="excluir">
+                                <button button onClick={handDelete.bind(this,clie.id, 'clientes')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -54,6 +64,7 @@ export default function Consumir(){
                         <th>Numero de Serie</th>
                         <th>Ano de fabricação</th>
                         <th>Valo no mercado</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,6 +75,9 @@ export default function Consumir(){
                             <td className="td">{bic.num_serie}</td>
                             <td className="td">{bic.ano_fabricacao}</td>
                             <td className="td">{bic.valor_mercado}</td>
+                            <td className="excluir">
+                                <button button onClick={handDelete.bind(this,bic.id, 'bicicletas')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
