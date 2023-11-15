@@ -4,31 +4,47 @@ import {FaEdit, FaTrash} from 'react-icons/fa'
 export default function Consumir(){
     const[clientes, setClientes] = useState([])
     const[bicicletas, setBicicletas] = useState([])
+    const[vistorias, setVistorias] = useState([])
+    const[sinistros, setSinistros] = useState([])
 
     const handDelete = (id, endpoint)=>{
-        fetch(`http://127.0.0.1:5000/api/${endpoint}/${id}`, {method: 'delete'})
+        fetch(`http://localhost:8080/demo/webapi/${endpoint}/${id}`, {method: 'delete'})
             .then(window.location = '/consumir')
             .catch(error => console.error(error))
     }
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/clientes')
+        fetch('http://localhost:8080/demo/webapi/clientes')
             .then(resp => resp.json())
             .then(resp => setClientes(resp))
             .catch(error => console.error(error))
     }, [])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/bicicletas')
+        fetch('http://localhost:8080/demo/webapi/bicicletas')
             .then(resp => resp.json())
             .then(resp => setBicicletas(resp))
+            .catch(error => console.error(error))
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:8080/demo/webapi/vistorias')
+            .then(resp => resp.json())
+            .then(resp => setVistorias(resp))
+            .catch(error => console.error(error))
+    }, [])
+    
+    useEffect(() => {
+        fetch('http://localhost:8080/demo/webapi/sinistros')
+            .then(resp => resp.json())
+            .then(resp => setSinistros(resp))
             .catch(error => console.error(error))
     }, [])
     
     return(
         <main className="consumir">
             <h1 className="consumir__titulo">Lista de Clientes Cadastrados</h1>
-
+            
             <table className="consumir__table">
                 <thead>
                     <tr>
@@ -54,7 +70,7 @@ export default function Consumir(){
                 </tbody>
             </table>
 
-            <h1 className="consumir__titulo">Lista de Clientes Cadastrados</h1>
+            <h1 className="consumir__titulo">Lista de Bicicletas Cadastrados</h1>
 
             <table className="consumir__table">
                 <thead>
@@ -77,6 +93,60 @@ export default function Consumir(){
                             <td className="td">{bic.valor_mercado}</td>
                             <td className="excluir">
                                 <button button onClick={handDelete.bind(this,bic.id, 'bicicletas')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <h1 className="consumir__titulo">Lista de Vistorias</h1>
+
+            <table className="consumir__table">
+                <thead>
+                    <tr>
+                        <th>fotos_videos</th>
+                        <th>ID da Bike</th>
+                        <th>ID do Cliente</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {vistorias.map(vis=>(
+                        <tr key={vis.id} className="tr">
+                            <td className="td">{vis.fotos_videos}</td>
+                            <td className="td">{vis.id_bike}</td>
+                            <td className="td">{vis.id_cliente}</td>
+                            <td className="excluir">
+                                <button button onClick={handDelete.bind(this,vis.id, 'vistorias')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <h1 className="consumir__titulo">Lista de Sinistros</h1>
+
+            <table className="consumir__table">
+                <thead>
+                    <tr>
+                        <th>Data do Sinistro</th>
+                        <th>Descrição</th>
+                        <th>ID da Bicicleta</th>
+                        <th>ID do Cliente</th>
+                        <th>Valor do Prejuizo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {sinistros.map(sin=>(
+                        <tr key={sin.id} className="tr">
+                            <td className="td">{sin.data_sinistro}</td>
+                            <td className="td">{sin.descricao}</td>
+                            <td className="td">{sin.id_bike}</td>
+                            <td className="td">{sin.id_cliente}</td>
+                            <td className="td">{sin.valor_prejuizo}</td>
+                            <td className="excluir">
+                                <button button onClick={handDelete.bind(this,sin.id, 'sinistros')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
                             </td>
                         </tr>
                     ))}
