@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
-import {FaEdit, FaTrash} from 'react-icons/fa'
+import {FaEdit, FaTrash, FaPen } from 'react-icons/fa'
+import Link from "next/link";
 export default function Consumir(){
     const[clientes, setClientes] = useState([])
     const[bicicletas, setBicicletas] = useState([])
@@ -52,7 +53,7 @@ export default function Consumir(){
                         <th>Telefone</th>
                         <th>Email</th>
                         <th>Cpf</th>
-                        <th></th>
+                        <th className="Criar"><Link href="/consumir/criarCliente/0">Cadastrar Cliente</Link></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +64,9 @@ export default function Consumir(){
                             <td className="td">{clie.email}</td>
                             <td className="td">{clie.cpf}</td>
                             <td className="excluir">
+                                <Link href={`/consumir/criarCliente/${clie.id}`}>Editar
+                                    <FaPen className="FaPen"></FaPen >
+                                </Link>
                                 <button button onClick={handDelete.bind(this,clie.id, 'clientes')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
                             </td>
                         </tr>
@@ -80,7 +84,7 @@ export default function Consumir(){
                         <th>Numero de Serie</th>
                         <th>Ano de fabricação</th>
                         <th>Valo no mercado</th>
-                        <th></th>
+                        <th className="Criar"><Link href="/consumir/criarBicicleta/0">Inserir Bicicleta</Link></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,6 +96,9 @@ export default function Consumir(){
                             <td className="td">{bic.ano_fabricacao}</td>
                             <td className="td">{bic.valor_mercado}</td>
                             <td className="excluir">
+                                <Link href={`/consumir/criarBicicleta/${bic.id}`}>Editar
+                                    <FaPen className="FaPen"></FaPen >
+                                </Link>
                                 <button button onClick={handDelete.bind(this,bic.id, 'bicicletas')}>Excluir<FaTrash className="iconEx"></FaTrash></button>
                             </td>
                         </tr>

@@ -1001,7 +1001,7 @@ footer{
 
 
 .consumir{
-  width: 70%;
+  width: 90%;
   margin: 55px auto;
   .consumir__titulo{
     text-align: center;
@@ -1015,6 +1015,8 @@ footer{
     background-color: white;
     border-collapse: collapse;
     margin-bottom: 35px;
+    border-radius: 15px;
+    overflow: hidden;
     thead{
       tr{
         background-color: #3C5CCF;
@@ -1022,6 +1024,18 @@ footer{
         text-align: left;
         th{
           padding: 15px 15px;
+        }
+        .Criar{
+          a{
+            color: white;
+            text-decoration: none;
+          }
+          :hover{
+            text-decoration: underline;
+          }
+          display: flex;
+          justify-content: center;
+          background-color: #2e469d;
         }
       }
     }
@@ -1034,13 +1048,32 @@ footer{
 
         }
         .excluir{
-          width: 10%;
+          display: flex;
+          width: 100%;
+          padding: 10px 15px;
+          flex-direction: column;
+          align-items: center;
+          a{
+            font-size: 1em;
+            width: 100%;
+            background-color: green;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 5px;
+            .FaPen{
+              margin-left: 10px;
+            }
+          }
           button{
             width: 100%;
+            font-size: 1em;
             padding: 5px;
             border-radius: 5px;
             outline: none;
-            border: 1px solid #ccc;
+            border: none;
             background-color: #3C5CCF;
             color: white;
             display: flex;
@@ -1052,8 +1085,8 @@ footer{
             }
           }
           :hover{
-            background-color: red;
-            transform: scale(1.1);
+            background-color: rgb(170, 48, 48);
+            transform: scale(1.03);
           }
         }
      
@@ -1062,6 +1095,55 @@ footer{
         background-color: #ccc;
       }
      
+    }
+  }
+}
+.criarCliente{
+  width: 100%;
+  height: 70vh;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  form{
+    background-color: #363636;
+    min-width: 50vw;
+    max-width: 30vw;
+    padding: 60px 30px;
+    h1{
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    input{
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid white;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: transparent;
+      outline: none;
+      color: white;
+    }
+    button{
+      margin-top: 30px;
+      border: none;
+      background-color: #FBF5F3;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px 0;
+      font-size: 1em;
+    }
+    a{
+      display: inline-block;
+      width: 100%;
+      background-color: #0F0E0E;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 1em;
+      text-decoration: none;
     }
   }
 }
