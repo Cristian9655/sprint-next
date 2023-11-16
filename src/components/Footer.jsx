@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 export default function Footer() {
     const pathname = usePathname();
 
-    const isSegurosOrVistoria = pathname === '/seguros' || pathname === '/vistoria';
+    const isSegurosOrVistoria = pathname === '/seguros' || pathname === '/vistoria' || pathname === '/consumir';
 
     return isSegurosOrVistoria ? (
         <footer>
