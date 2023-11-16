@@ -8,11 +8,27 @@ export default function Consumir(){
     const[vistorias, setVistorias] = useState([])
     const[sinistros, setSinistros] = useState([])
 
-    const handDelete = (id, endpoint)=>{
-        fetch(`http://localhost:8080/demo/webapi/${endpoint}/${id}`, {method: 'delete'})
-            .then(window.location = '/consumir')
-            .catch(error => console.error(error))
-    }
+    const [error, setError] = useState(null);
+
+    const handDelete = (id, endpoint) => {
+        fetch(`http://localhost:8080/demo/webapi/${endpoint}/${id}`, {
+          method: "delete",
+        })
+          .then((resp) => {
+            if (resp.ok) {
+              setError(null);
+              window.location = "/consumir";
+            } else {
+              setError("Esta linha de dodos esta sendo usada pela lista Vistoria ou Sinistro.");
+              alert("Esta linha de dodos esta sendo usada pela lista Vistoria ou Sinistro.");
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            setError("Esta linha de dodos esta sendo usada pela lista Vistoria ou Sinistro.");
+            alert("Esta linha de dodos esta sendo usada pela lista Vistoria ou Sinistro.");
+          });
+      };
 
     useEffect(() => {
         fetch('http://localhost:8080/demo/webapi/clientes')
